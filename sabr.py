@@ -122,6 +122,7 @@ class SABR:
             option_type: 'call' or 'put' or 'both'
         """
         # Fetch data
+        option_type = option_type.lower()
         stock = yf.Ticker(self.ticker)
         self.spot = stock.history(period='1d')['Close'].iloc[-1]
 
@@ -322,7 +323,6 @@ class SABR:
 
 
       K_mesh, T_mesh, vol_surface = self.get_vol_surface(strikes, maturities)
-      fig = plt.figure(figsize = (12, 8))
 
       fig = go.Figure(data=[go.Surface(
             x=K_mesh,
@@ -346,3 +346,10 @@ class SABR:
       return fig
 
 
+# model = SABR("AAPL", beta=0.5)
+# model.calibrate(expiry_index=5, option_type='calls')
+
+# print(model.summary())
+# model.plot()
+# fig = model.plot_surface()
+# fig.show()
