@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 from datetime import datetime
 from scipy.optimize import least_squares
-from scipy.stats import norm
+from scipy.stats import norm 
 import plotly.graph_objects as go
 
 

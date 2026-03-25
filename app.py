@@ -21,12 +21,12 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    ticker = st.text_input("Ticker Symbol", value="AAPL").upper()
+    ticker = st.text_input("Ticker Symbol", value="Enter Ticker").upper()
 
 with col2:
     option_type = st.selectbox(
         "Option Type",
-        options=["CALLS", "PUTS", "BOTH"],
+        options=["CALLS", "PUTS"],
         index=0
     )
 
@@ -89,10 +89,8 @@ if run_button:
             except Exception as e:
                 st.error(f"Something went wrong: {e}")
 
-# ─────────────────────────────────────────────
 # SECTION 3: OUTPUTS
 # Only shown after successful calibration
-# ─────────────────────────────────────────────
 
 if 'model' in st.session_state:
     model = st.session_state['model']
